@@ -1,0 +1,44 @@
+index.html
+  s_b2631df4147db4::t_946fc24384f8d7 63
+  s_b2631df4147db4::t_f427c4bcf70ad3 44
+  s_b2631df4147db4::t_a142e41a5db4f0 39
+  s_b2631df4147db4::t_f25de373665ffd 49
+  s_b2631df4147db4::t_a12c2fc1d7e3ff 35-36,40-41,45-46,50-51,55-56
+  s_b2631df4147db4::t_a32aeac7673461 58,60,62,64
+  s_b2631df4147db4::t_4f39f459406162 15
+  s_b2631df4147db4::t_8cf6de12232719 37-38,42-43,47-48,52-53,57,59,61,65-66
+  s_b2631df4147db4::t_9a01c05239ffb2 7
+  s_b2631df4147db4::t_3e256195bbc74d 54
+style.css
+  s_b2631df4147db4::t_da3f3cd8679e48 115-127
+  s_b2631df4147db4::t_d04b20f2393486 148-151
+  s_b2631df4147db4::t_f4bf4e4c3fa31c 152-174
+  s_b2631df4147db4::t_ea7c9dcb22d66c 37
+  s_b2631df4147db4::t_e12f78439d36bb 96,101-103,108-110,113,131-138
+  s_b2631df4147db4::t_27602d13f1e49a 26-28
+  s_b2631df4147db4::t_d87bd9ca76090a 57-62
+  s_b2631df4147db4::t_be018867d087f9 142-147
+  s_b2631df4147db4::t_dccf6e2e6278a9 42,47-48,53,55
+  s_b2631df4147db4::t_422cb9eedbb06e 29,41,44-46,49-52,54,56,63-64,67-68,70-72,80-84,86-87,89-91,93,97-98,139-140
+  s_b2631df4147db4::t_27b7dfeeacb2d7 76-78,92
+  s_b2631df4147db4::t_a312787b1d2972 31-32
+  s_b2631df4147db4::t_7bbf178441f960 43,65-66,69,73-75,79,88,95,99-100,104-107,111-112,128-130,141
+  s_b2631df4147db4::t_fada83a482d661 85,94
+  s_b2631df4147db4::t_e687c609058181 30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d4ea9830efc57dabd24b23b34438f9e24f816a9e",
+  "prompts": {},
+  "sessions": {
+    "s_b2631df4147db4": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "dd5112ae-a985-40bf-826b-73cc4a2a942d",
+        "model": "grok-4.7"
+      },
+      "human_author": null
+    }
+  }
+}

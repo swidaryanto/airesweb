@@ -1,0 +1,26 @@
+index.html
+  s_b2631df4147db4::t_318285288d35be 39
+  s_b2631df4147db4::t_6d7d9cc99ba4f8 54
+  s_b2631df4147db4::t_16474cc369ff2b 49
+  s_b2631df4147db4::t_9499a7a9d745d0 44
+style.css
+  s_b2631df4147db4::t_bf3156d5019f75 94
+  s_b2631df4147db4::t_459fafaa6aecc3 168,172
+  s_b2631df4147db4::t_f3b6074f2f23fd 85
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "dd647bf62da6fc733556af7b7d9fc4c6a9aa943b",
+  "prompts": {},
+  "sessions": {
+    "s_b2631df4147db4": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "dd5112ae-a985-40bf-826b-73cc4a2a942d",
+        "model": "grok-4.7"
+      },
+      "human_author": null
+    }
+  }
+}

@@ -1,0 +1,21 @@
+index.html
+  s_b2631df4147db4::t_14ee35f0b95530 2,6-7,14-15,17,30-36
+style.css
+  s_b2631df4147db4::t_2d6ba7fbe5ec3e 9-11,15-16,22-23,28-29,32-35,38-40,42-43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7f005c1a682d86425f9308111c13e14302a56836",
+  "prompts": {},
+  "sessions": {
+    "s_b2631df4147db4": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "dd5112ae-a985-40bf-826b-73cc4a2a942d",
+        "model": "grok-4.7"
+      },
+      "human_author": null
+    }
+  }
+}

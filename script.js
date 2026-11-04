@@ -1,4 +1,4 @@
-/* AIRES — mobile navigation and section highlight. No dependencies. */
+/* AIRES — menu, section highlight, and one-shot motion. No dependencies. */
 (function () {
   'use strict';
 
@@ -8,11 +8,23 @@
   if (!nav || !btn) return;
 
   var links = nav.querySelectorAll('a[href^="#"]:not(.btn)');
+  var desktop = window.matchMedia('(min-width: 1024px)');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function trapItems() {
+    var items = [btn];
+    nav.querySelectorAll('a').forEach(function (a) { items.push(a); });
+    return items;
+  }
 
   function setOpen(open) {
     root.classList.toggle('menu-open', open);
     btn.setAttribute('aria-expanded', String(open));
     btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (open) {
+      var first = nav.querySelector('a');
+      if (first) first.focus();
+    }
   }
 
   btn.addEventListener('click', function () {
@@ -24,9 +36,22 @@
   });
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && root.classList.contains('menu-open')) {
+    if (!root.classList.contains('menu-open') || desktop.matches) return;
+    if (e.key === 'Escape') {
       setOpen(false);
       btn.focus();
+      return;
+    }
+    if (e.key !== 'Tab') return;
+    var items = trapItems();
+    var first = items[0];
+    var last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
     }
   });
 
@@ -34,42 +59,70 @@
     if (!root.classList.contains('menu-open')) return;
     if (e.target.closest('.site-header')) return;
     setOpen(false);
+    btn.focus();
   });
 
-  window.matchMedia('(min-width: 900px)').addEventListener('change', function (m) {
+  desktop.addEventListener('change', function (m) {
     if (m.matches) setOpen(false);
   });
 
   var sections = [];
   links.forEach(function (a) {
-    var id = a.getAttribute('href').slice(1);
-    var section = document.getElementById(id);
+    var section = document.getElementById(a.getAttribute('href').slice(1));
     if (section) sections.push(section);
   });
 
   function setCurrent(id) {
     links.forEach(function (a) {
-      if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'true');
+      if (id && a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'true');
       else a.removeAttribute('aria-current');
     });
   }
 
+  var hero = document.getElementById('top');
   if ('IntersectionObserver' in window && sections.length) {
     var ratios = new Map();
-    var observer = new IntersectionObserver(function (entries) {
+    var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         ratios.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0);
       });
       var best = null;
       var bestRatio = 0;
-      ratios.forEach(function (ratio, id) {
+      sections.forEach(function (section) {
+        var ratio = ratios.get(section.id) || 0;
         if (ratio > bestRatio) {
           bestRatio = ratio;
-          best = id;
+          best = section.id;
         }
       });
-      setCurrent(best || 'who');
+      var heroRatio = ratios.get('top') || 0;
+      if (heroRatio > bestRatio) setCurrent(null);
+      else if (best) setCurrent(best);
     }, { rootMargin: '-18% 0px -50% 0px', threshold: [0, 0.2, 0.45, 0.7, 1] });
-    sections.forEach(function (section) { observer.observe(section); });
+    if (hero) spy.observe(hero);
+    sections.forEach(function (section) { spy.observe(section); });
   }
+
+  document.addEventListener('animationend', function (e) {
+    e.target.style.willChange = 'auto';
+    if (e.target.classList && (e.target.classList.contains('member') || e.target.classList.contains('panel'))) {
+      e.target.classList.add('settled');
+    }
+  });
+
+  if (reduce.matches || !('IntersectionObserver' in window)) return;
+
+  root.classList.add('can-reveal');
+  var seen = new WeakSet();
+  var reveal = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting || seen.has(entry.target)) return;
+      seen.add(entry.target);
+      entry.target.classList.add('is-in');
+      reveal.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px 40px 0px' });
+  document.querySelectorAll('.member, .panel, .steps li, #contact').forEach(function (el) {
+    reveal.observe(el);
+  });
 })();

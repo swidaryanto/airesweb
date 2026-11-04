@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AIRES — We make working with AI feel natural.</title>
+  <script>document.documentElement.classList.add("js");</script>
+  <title>AIRES — Research on human–AI collaboration</title>
   <meta name="description" content="AIRES is a research team from Indonesia. We study how people and AI work together, when people should trust AI, and how to design AI tools that help everyone.">
   <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://airesresearch.org/">
@@ -11,13 +12,16 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AIRES">
   <meta property="og:url" content="https://airesresearch.org/">
-  <meta property="og:title" content="AIRES — We make working with AI feel natural.">
+  <meta property="og:title" content="AIRES — Research on human–AI collaboration">
   <meta property="og:description" content="AIRES is a research team from Indonesia. We study how people and AI work together, when people should trust AI, and how to design AI tools that help everyone.">
   <meta property="og:image" content="https://airesresearch.org/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AIRES — We make working with AI feel natural.">
+  <meta name="twitter:title" content="AIRES — Research on human–AI collaboration">
   <meta name="twitter:description" content="AIRES is a research team from Indonesia. We study how people and AI work together, when people should trust AI, and how to design AI tools that help everyone.">
+  <meta name="twitter:image" content="https://airesresearch.org/assets/og-image.png">
 
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -45,7 +49,7 @@
         <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
       </button>
       <nav class="nav" id="site-nav" aria-label="Main">
-        <a href="#who" aria-current="true">Who we are</a>
+        <a href="#who">Who we are</a>
         <a href="#team">Team</a>
         <a href="#what">What we do</a>
         <a href="#research">Research</a>
@@ -58,13 +62,13 @@
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Hi, we are AIRES!</p>
-          <h1 id="hero-title">
+          <p class="eyebrow rise" style="--i:0">Hi, we are AIRES!</p>
+          <h1 id="hero-title" class="rise" style="--i:1">
             <span class="line">We make</span>
             <span class="line">working with</span>
-            <span class="line">AI feel <span class="mark">natural.<svg viewBox="0 0 220 90" preserveAspectRatio="none" aria-hidden="true"><path d="M18 52c6-24 42-40 86-38 46 2 92 18 98 36 5 16-12 32-48 38-42 7-104 2-128-14-14-9-18-18-8-22z"/></svg></span></span>
+            <span class="line">AI feel <span class="nowrap"><span class="mark">natural<svg viewBox="0 0 220 78" aria-hidden="true"><path pathLength="1" d="M34 42C36 16 78 8 114 8c44 0 78 12 78 30 0 22-36 32-80 32-46 0-80-12-78-28z"/></svg></span>.</span></span>
           </h1>
-          <p class="lede">AIRES is a research team from Indonesia. We study how people and AI work together, when people should trust AI, and how to design AI tools that help everyone.</p>
+          <p class="lede rise" style="--i:2">AIRES is a research team from Indonesia. We study how people and AI work together, when people should trust AI, and how to design AI tools that help everyone.</p>
           <div class="hero-actions">
             <a class="btn btn-dark" href="#team">Meet the team <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <a class="btn btn-ghost" href="#research">See our research</a>
@@ -78,34 +82,47 @@
         <figure class="hero-art">
           <svg viewBox="0 0 640 470" role="img" aria-label="A worried person sits beside a laptop whose screen shows a friendly face. Speech bubbles ask, Is this right? and Can I trust it?">
             <circle cx="368" cy="214" r="176" fill="#d7ebf8"/>
-            <circle cx="292" cy="58" r="22" fill="#fff" stroke="#23486a" stroke-width="2.2"/>
-            <text x="292" y="66" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="22" font-weight="700" fill="#17324d">?</text>
 
-            <path d="M168 78h132c12 0 20 8 20 20v28c0 12-8 20-20 20H214l-22 20 2-20h-26c-12 0-20-8-20-20V98c0-12 8-20 20-20z" fill="#fff" stroke="#23486a" stroke-width="2.2" stroke-linejoin="round"/>
-            <text x="234" y="118" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="600" fill="#17324d">Is this right?</text>
+            <g class="bubble" style="--i:0; --origin:50% 100%">
+              <circle cx="292" cy="58" r="22" fill="#fff" stroke="#23486a" stroke-width="2.2"/>
+              <text x="292" y="66" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="22" font-weight="700" fill="#17324d">?</text>
+            </g>
+            <g class="bubble" style="--i:1; --origin:18% 100%">
+              <path d="M168 78h132c12 0 20 8 20 20v28c0 12-8 20-20 20H214l-22 20 2-20h-26c-12 0-20-8-20-20V98c0-12 8-20 20-20z" fill="#fff" stroke="#23486a" stroke-width="2.2" stroke-linejoin="round"/>
+              <text x="234" y="118" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="600" fill="#17324d">Is this right?</text>
+            </g>
+            <g class="bubble" style="--i:2; --origin:14% 92%">
+              <path d="M392 46h168c12 0 20 8 20 20v28c0 12-8 20-20 20H470l-16 18 1-18h-63c-12 0-20-8-20-20V66c0-12 8-20 20-20z" fill="#fff" stroke="#23486a" stroke-width="2.2" stroke-linejoin="round"/>
+              <text x="476" y="86" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="600" fill="#17324d">Can I trust it?</text>
+            </g>
+            <g class="bubble" style="--i:3; --origin:0% 50%">
+              <circle cx="548" cy="248" r="26" fill="#fff" stroke="#23486a" stroke-width="2.2"/>
+              <text x="548" y="254" text-anchor="middle" font-family="Caveat, cursive" font-size="20" font-weight="700" fill="#1f78c4">why</text>
+            </g>
 
-            <path d="M392 46h168c12 0 20 8 20 20v28c0 12-8 20-20 20H470l-16 18 1-18h-63c-12 0-20-8-20-20V66c0-12 8-20 20-20z" fill="#fff" stroke="#23486a" stroke-width="2.2" stroke-linejoin="round"/>
-            <text x="476" y="86" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="600" fill="#17324d">Can I trust it?</text>
-
-            <path d="M148 392c70 10 150-8 230 4 70 10 130 6 190-6" fill="none" stroke="#23486a" stroke-width="2.2" stroke-linecap="round"/>
-
-            <circle cx="214" cy="214" r="40" fill="#fff" stroke="#23486a" stroke-width="2.3"/>
-            <path d="M198 208c4 5 8 5 12 0M218 208c4 5 8 5 12 0" fill="none" stroke="#23486a" stroke-width="2.2" stroke-linecap="round"/>
-            <path d="M202 230c8 6 18 6 26 0" fill="none" stroke="#23486a" stroke-width="2.2" stroke-linecap="round" transform="rotate(180 215 232)"/>
-            <path d="M248 188c6-10 8-10 10-2" fill="none" stroke="#7eb6de" stroke-width="2" stroke-linecap="round"/>
-            <path d="M252 196c3 6 8 8 6 14" fill="#d7ebf8" stroke="#7eb6de" stroke-width="1.6"/>
-
-            <path d="M158 268c8-22 28-32 56-32s48 12 56 34c6 18 8 48 4 92-2 16-14 22-28 22h-64c-16 0-28-8-30-24-4-40-2-72 6-92z" fill="#fff" stroke="#23486a" stroke-width="2.3" stroke-linejoin="round"/>
-
-            <rect x="338" y="214" width="168" height="118" rx="12" fill="#fff" stroke="#23486a" stroke-width="2.3"/>
-            <circle cx="404" cy="266" r="7" fill="#23486a"/>
-            <circle cx="440" cy="266" r="7" fill="#23486a"/>
-            <path d="M404 288c10 12 26 12 36 0" fill="none" stroke="#23486a" stroke-width="2.2" stroke-linecap="round"/>
-            <path d="M360 332h124" stroke="#23486a" stroke-width="2.2" stroke-linecap="round"/>
-            <path d="M318 338h210c8 0 12 5 12 10v8H306v-8c0-5 4-10 12-10z" fill="#fff" stroke="#23486a" stroke-width="2.3" stroke-linejoin="round"/>
-
-            <circle cx="548" cy="248" r="26" fill="#fff" stroke="#23486a" stroke-width="2.2"/>
-            <text x="548" y="254" text-anchor="middle" font-family="Caveat, cursive" font-size="20" font-weight="700" fill="#1f78c4">why</text>
+            <g class="draw" style="--i:0">
+              <circle cx="214" cy="214" r="40" fill="#fff" stroke="#23486a" stroke-width="2.3" pathLength="1"/>
+              <path d="M198 208c4 5 8 5 12 0M218 208c4 5 8 5 12 0" fill="none" stroke="#23486a" stroke-width="2.2" stroke-linecap="round" pathLength="1"/>
+              <path d="M202 230c8 6 18 6 26 0" fill="none" stroke="#23486a" stroke-width="2.2" stroke-linecap="round" transform="rotate(180 215 232)" pathLength="1"/>
+            </g>
+            <g class="draw" style="--i:1">
+              <path d="M248 188c6-10 8-10 10-2" fill="none" stroke="#7eb6de" stroke-width="2" stroke-linecap="round" pathLength="1"/>
+              <path d="M252 196c3 6 8 8 6 14" fill="#d7ebf8" stroke="#7eb6de" stroke-width="1.6" pathLength="1"/>
+              <path d="M158 268c8-22 28-32 56-32s48 12 56 34c6 18 8 48 4 92-2 16-14 22-28 22h-64c-16 0-28-8-30-24-4-40-2-72 6-92z" fill="#fff" stroke="#23486a" stroke-width="2.3" stroke-linejoin="round" pathLength="1"/>
+            </g>
+            <g class="draw" style="--i:2">
+              <rect x="338" y="214" width="168" height="118" rx="12" fill="#fff" stroke="#23486a" stroke-width="2.3" pathLength="1"/>
+            </g>
+            <g class="draw" style="--i:3">
+              <circle cx="404" cy="266" r="3.2" fill="none" stroke="#23486a" stroke-width="7" pathLength="1"/>
+              <circle cx="440" cy="266" r="3.2" fill="none" stroke="#23486a" stroke-width="7" pathLength="1"/>
+              <path d="M404 288c10 12 26 12 36 0" fill="none" stroke="#23486a" stroke-width="2.2" stroke-linecap="round" pathLength="1"/>
+              <path d="M360 332h124" stroke="#23486a" stroke-width="2.2" stroke-linecap="round" pathLength="1"/>
+            </g>
+            <g class="draw" style="--i:4">
+              <path d="M318 338h210c8 0 12 5 12 10v8H306v-8c0-5 4-10 12-10z" fill="#fff" stroke="#23486a" stroke-width="2.3" stroke-linejoin="round" pathLength="1"/>
+            </g>
+            <path class="draw" style="--i:5" d="M148 392c70 10 150-8 230 4 70 10 130 6 190-6" fill="none" stroke="#23486a" stroke-width="2.2" stroke-linecap="round" pathLength="1"/>
           </svg>
           <figcaption>
             <span>this is the problem we study</span>
@@ -154,7 +171,7 @@
         <p class="eyebrow">The team</p>
         <h2 id="team-title">Meet the people behind AIRES</h2>
         <p class="sub">Four members, each with a different area of expertise.</p>
-        <div class="team-grid">
+        <div class="team-grid" data-reveal>
           <article class="member">
             <header class="member-head">
               <span class="avatar" aria-hidden="true">KL</span>
@@ -168,14 +185,13 @@
               <li>Inclusive design</li>
               <li>Accessibility</li>
               <li>Design systems</li>
-              <li>AI in design work</li>
             </ul>
             <dl class="facts">
               <div><dt>Now</dt><dd>Product Designer at BookCabin (Lion Air Group)</dd></div>
               <div><dt>Before</dt><dd>Sea and Shopee: a B2B supply chain financing platform, and games for users across Southeast Asia</dd></div>
               <div><dt>Education</dt><dd>BA in Graphic Design, Universitas Multimedia Nusantara</dd></div>
             </dl>
-            <p class="links"><a href="https://www.linkedin.com/in/hikalvin" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> for Kalvin Lim (opens in a new tab)</span></a></p>
+            <p class="links"><a href="https://www.linkedin.com/in/hikalvin" target="_blank" rel="noopener" aria-label="Kalvin Lim on LinkedIn">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></p>
           </article>
 
           <article class="member">
@@ -191,15 +207,14 @@
               <li>AI-applied design</li>
               <li>B2B dashboards</li>
               <li>D2C commerce</li>
-              <li>Design systems</li>
             </ul>
             <dl class="facts">
               <div><dt>Now</dt><dd>Senior Product Designer</dd></div>
               <div><dt>Focus</dt><dd>Data-heavy screens and design systems that scale</dd></div>
             </dl>
             <p class="links">
-              <a href="https://www.widaryanto.com/" target="_blank" rel="noopener noreferrer">Portfolio<span class="sr-only"> of M. Septian Widaryanto (opens in a new tab)</span></a>
-              <a href="https://www.linkedin.com/in/mseptianwidaryanto" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> for M. Septian Widaryanto (opens in a new tab)</span></a>
+              <a href="https://www.widaryanto.com/" target="_blank" rel="noopener" aria-label="M. Septian Widaryanto’s portfolio">Portfolio<span class="sr-only"> (opens in a new tab)</span></a>
+              <a href="https://www.linkedin.com/in/mseptianwidaryanto" target="_blank" rel="noopener" aria-label="M. Septian Widaryanto on LinkedIn">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
             </p>
           </article>
 
@@ -216,7 +231,6 @@
               <li>Product management</li>
               <li>Scrum and agile</li>
               <li>Human-computer trust</li>
-              <li>UX research</li>
             </ul>
             <dl class="facts">
               <div><dt>Study</dt><dd>Master’s student, Department of Informatics, Umeå University, Sweden</dd></div>
@@ -225,8 +239,8 @@
               <div><dt>Certified</dt><dd>Certified Associate in Scrum Fundamentals (CASF)</dd></div>
             </dl>
             <p class="links">
-              <a href="https://www.researchgate.net/publication/397786254_Trust_in_Telemedicine_Services_Mobile_Application_A_Case_Study_in_Indonesia_Post-pandemic_Investigating_Factors_Affecting_Users'_Trust_Perception" target="_blank" rel="noopener noreferrer">ResearchGate<span class="sr-only"> profile publication by Andreas Harnindito (opens in a new tab)</span></a>
-              <a href="https://medium.com/@andreeyash" target="_blank" rel="noopener noreferrer">Website<span class="sr-only"> of Andreas Harnindito (opens in a new tab)</span></a>
+              <a href="https://www.researchgate.net/publication/397786254_Trust_in_Telemedicine_Services_Mobile_Application_A_Case_Study_in_Indonesia_Post-pandemic_Investigating_Factors_Affecting_Users'_Trust_Perception" target="_blank" rel="noopener" aria-label="Andreas Harnindito on ResearchGate">ResearchGate<span class="sr-only"> (opens in a new tab)</span></a>
+              <a href="https://medium.com/@andreeyash" target="_blank" rel="noopener" aria-label="Andreas Harnindito’s website">Website<span class="sr-only"> (opens in a new tab)</span></a>
             </p>
           </article>
 
@@ -243,7 +257,6 @@
               <li>Social impact design</li>
               <li>Accessibility</li>
               <li>Inclusive websites</li>
-              <li>Design mentoring</li>
             </ul>
             <dl class="facts">
               <div><dt>Now</dt><dd>Remote UI/UX Designer</dd></div>
@@ -252,9 +265,9 @@
               <div><dt>Teaching</dt><dd>Online Canva classes for people with disabilities. Mentor in #SheLeadsTech with Ladies in Tech and AWS</dd></div>
             </dl>
             <p class="links">
-              <a href="https://gghina-portfolio.webflow.io/" target="_blank" rel="noopener noreferrer">Portfolio<span class="sr-only"> of Ghisani Ghina Bakhitah (opens in a new tab)</span></a>
-              <a href="https://www.linkedin.com/in/ghisani-ghina-bakhitah" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> for Ghisani Ghina Bakhitah (opens in a new tab)</span></a>
-              <a href="https://medium.com/@GhisaniGhina" target="_blank" rel="noopener noreferrer">Medium<span class="sr-only"> of Ghisani Ghina Bakhitah (opens in a new tab)</span></a>
+              <a href="https://gghina-portfolio.webflow.io/" target="_blank" rel="noopener" aria-label="Ghisani Ghina Bakhitah’s portfolio">Portfolio<span class="sr-only"> (opens in a new tab)</span></a>
+              <a href="https://www.linkedin.com/in/ghisani-ghina-bakhitah" target="_blank" rel="noopener" aria-label="Ghisani Ghina Bakhitah on LinkedIn">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+              <a href="https://medium.com/@GhisaniGhina" target="_blank" rel="noopener" aria-label="Ghisani Ghina Bakhitah on Medium">Medium<span class="sr-only"> (opens in a new tab)</span></a>
             </p>
           </article>
         </div>
@@ -266,28 +279,28 @@
         <p class="eyebrow">What we do</p>
         <h2 id="what-title">We listen first, then<span class="break"></span> share what we learn</h2>
         <p class="sub">Every study follows the same three steps.</p>
-        <ol class="steps">
-          <li>
+        <ol class="steps" data-reveal>
+          <li style="--i:0">
             <span class="step-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M7.5 12.5c0-3.4 2.1-6.2 5.2-6.2 3 0 5.3 2.2 5.3 5.4 0 2.3-.9 3.5-1.7 4.5-.7.9-1.2 1.5-1.2 2.3 0 1.2-.8 2-1.9 2s-1.8-.8-1.8-1.9"/><path d="M10.4 12.6c0-1.7 1-2.9 2.3-2.9 1.2 0 2.1.9 2.1 2.1 0 1.2-.5 1.7-1 2.3"/></svg>
+              <svg viewBox="0 0 24 24"><path pathLength="1" d="M7.5 12.5c0-3.4 2.1-6.2 5.2-6.2 3 0 5.3 2.2 5.3 5.4 0 2.3-.9 3.5-1.7 4.5-.7.9-1.2 1.5-1.2 2.3 0 1.2-.8 2-1.9 2s-1.8-.8-1.8-1.9"/><path pathLength="1" d="M10.4 12.6c0-1.7 1-2.9 2.3-2.9 1.2 0 2.1.9 2.1 2.1 0 1.2-.5 1.7-1 2.3"/></svg>
             </span>
             <p class="step-kicker">Step 1</p>
             <h3>Listen</h3>
             <p>We hold discussions and interviews with the people affected, such as parents and product teams.</p>
           </li>
-          <li>
+          <li style="--i:1">
             <svg class="step-arrow" viewBox="0 0 88 40" aria-hidden="true"><path d="M4 26c20-8 38-20 58-20 8 0 14 3 18 7"/><path d="M66 6l16 7-9 12"/></svg>
             <span class="step-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.2-4.2"/></svg>
+              <svg viewBox="0 0 24 24"><circle pathLength="1" cx="11" cy="11" r="6"/><path pathLength="1" d="m20 20-4.2-4.2"/></svg>
             </span>
             <p class="step-kicker">Step 2</p>
             <h3>Analyze</h3>
             <p>We look for patterns in how people use AI, where they trust it, and where it lets them down.</p>
           </li>
-          <li>
+          <li style="--i:2">
             <svg class="step-arrow" viewBox="0 0 88 40" aria-hidden="true"><path d="M4 26c20-8 38-20 58-20 8 0 14 3 18 7"/><path d="M66 6l16 7-9 12"/></svg>
             <span class="step-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M21 4 11.5 13.5"/><path d="M21 4 14.2 20l-2.8-6.2L5 11 21 4z"/></svg>
+              <svg viewBox="0 0 24 24"><path pathLength="1" d="M21 4 11.5 13.5"/><path pathLength="1" d="M21 4 14.2 20l-2.8-6.2L5 11 21 4z"/></svg>
             </span>
             <p class="step-kicker">Step 3</p>
             <h3>Share</h3>
@@ -301,7 +314,7 @@
       <div class="wrap">
         <p class="eyebrow">Research</p>
         <h2 id="research-title">What we are working on</h2>
-        <div class="research-grid">
+        <div class="research-grid" data-reveal>
           <article class="panel">
             <p class="chip">Upcoming study</p>
             <h3>A discussion with mothers of children aged <span class="nowrap">3 to 7</span></h3>
@@ -311,11 +324,11 @@
             <p class="chip">Member publications</p>
             <h3>Published work</h3>
             <div class="pub">
-              <h4><a href="https://aisel.aisnet.org/pacis2026/ai_ml/ai_ml/15" target="_blank" rel="noopener noreferrer">Should Teams Trust GenAI for Product Prioritization?<span class="sr-only"> (opens in a new tab)</span></a></h4>
+              <h4><a href="https://aisel.aisnet.org/pacis2026/ai_ml/ai_ml/15" target="_blank" rel="noopener">Should Teams Trust GenAI for Product Prioritization?<svg class="ext-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg><span class="sr-only"> (opens in a new tab)</span></a></h4>
               <p class="cite">A. Harnindito, S. G. Saputra. PACIS 2026, track on Artificial Intelligence and Machine Learning.</p>
             </div>
             <div class="pub">
-              <h4><a href="https://www.etera.ee/s/CTx8GRVGFl" target="_blank" rel="noopener noreferrer">Trust in Telemedicine Services Mobile Application: A Case Study in Indonesia Post-pandemic<span class="sr-only"> (opens in a new tab)</span></a></h4>
+              <h4><a href="https://www.etera.ee/s/CTx8GRVGFl" target="_blank" rel="noopener">Trust in Telemedicine Services Mobile Application: A Case Study in Indonesia Post-pandemic<svg class="ext-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg><span class="sr-only"> (opens in a new tab)</span></a></h4>
               <p class="cite">A. Harnindito. Master’s thesis, Tallinn University, 2024. Supervised by G. Beltrão and S. C. Sousa.</p>
             </div>
           </article>
@@ -323,7 +336,7 @@
       </div>
     </section>
 
-    <section class="section cta-section" id="contact" aria-labelledby="contact-title">
+    <section class="section cta-section" id="contact" data-reveal aria-labelledby="contact-title">
       <div class="wrap">
         <div class="cta">
           <div>
@@ -340,6 +353,7 @@
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <p>AIRES, <a href="https://airesresearch.org/">airesresearch.org</a></p>
+      <p><a href="mailto:contact@airesresearch.org">contact@airesresearch.org</a></p>
       <p>Research on human–AI collaboration</p>
     </div>
   </footer>

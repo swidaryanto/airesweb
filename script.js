@@ -104,15 +104,32 @@
   }
 
   document.addEventListener('animationend', function (e) {
-    e.target.style.willChange = 'auto';
-    if (e.target.classList && (e.target.classList.contains('member') || e.target.classList.contains('panel'))) {
-      e.target.classList.add('settled');
+    if (e.target && e.target.style) e.target.style.willChange = 'auto';
+    var node = e.target;
+    if (node && node.classList && (node.classList.contains('member') || node.classList.contains('panel') || node.classList.contains('cta') || node.classList.contains('step-icon'))) {
+      node.classList.add('settled');
     }
   });
 
-  if (reduce.matches || !('IntersectionObserver' in window)) return;
+  var targets = document.querySelectorAll('.member, .panel, .steps li, #contact');
 
-  root.classList.add('can-reveal');
+  function revealAll() {
+    targets.forEach(function (el) { el.classList.add('is-in'); });
+  }
+
+  function partlyInView(el) {
+    var rect = el.getBoundingClientRect();
+    var height = window.innerHeight || document.documentElement.clientHeight;
+    var visible = Math.min(rect.bottom, height) - Math.max(rect.top, 0);
+    return rect.width > 0 && visible >= Math.min(rect.height, height) * 0.1;
+  }
+
+  if (reduce.matches || !('IntersectionObserver' in window)) {
+    revealAll();
+    return;
+  }
+
+  root.classList.add('js-motion');
   var seen = new WeakSet();
   var reveal = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -121,8 +138,19 @@
       entry.target.classList.add('is-in');
       reveal.unobserve(entry.target);
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px 40px 0px' });
-  document.querySelectorAll('.member, .panel, .steps li, #contact').forEach(function (el) {
-    reveal.observe(el);
+  }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
+
+  targets.forEach(function (el) {
+    if (partlyInView(el)) {
+      seen.add(el);
+      el.classList.add('is-in');
+    } else {
+      reveal.observe(el);
+    }
   });
+
+  window.setTimeout(function () {
+    revealAll();
+    reveal.disconnect();
+  }, 1500);
 })();

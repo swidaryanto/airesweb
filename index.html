@@ -3,67 +3,362 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AIRES</title>
-  <meta name="description" content="AIRES is a research group on generative AI and children aged 3–7.">
+  <script>document.documentElement.classList.add("js");</script>
+  <title>AIRES — Research on human–AI collaboration</title>
+  <meta name="description" content="AIRES is a research team from Indonesia. We study how people and AI work together, when people should trust AI, and how to design AI tools that help everyone.">
   <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://airesresearch.org/">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AIRES">
   <meta property="og:url" content="https://airesresearch.org/">
-  <meta property="og:title" content="AIRES">
-  <meta property="og:description" content="AIRES is a research group on generative AI and children aged 3–7.">
+  <meta property="og:title" content="AIRES — Research on human–AI collaboration">
+  <meta property="og:description" content="AIRES is a research team from Indonesia. We study how people and AI work together, when people should trust AI, and how to design AI tools that help everyone.">
   <meta property="og:image" content="https://airesresearch.org/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AIRES — Research on human–AI collaboration">
+  <meta name="twitter:description" content="AIRES is a research team from Indonesia. We study how people and AI work together, when people should trust AI, and how to design AI tools that help everyone.">
+  <meta name="twitter:image" content="https://airesresearch.org/assets/og-image.png">
 
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:opsz,wght@17..18,400..700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <picture>
-      <source srcset="assets/aires-logo.webp" type="image/webp">
-      <img src="assets/aires-logo.png" alt="aires" width="218" height="64">
-    </picture>
-    <ul class="cards">
-      <li>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="3.5"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        <h2>Who we are</h2>
-        <p>A group of researchers interested in AI.</p>
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><path d="M12 18v4"/></svg>
-        <h2>What we do</h2>
-        <p>Listen, then share with child psychologists.</p>
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
-        <h2>Publications</h2>
-        <p>No publications yet.</p>
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M3 10h18"/></svg>
-        <h2>Upcoming research</h2>
-        <p>A discussion for mothers of children aged 3–7.</p>
-      </li>
-    </ul>
-    <nav class="social" aria-label="Social media">
-      <a href="https://www.instagram.com/airesresearch.org/" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
-        <span>airesresearch.org</span>
+  <a class="skip" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="#top" aria-label="AIRES">
+        <img src="assets/aires-logo.svg" alt="AIRES" width="213" height="90">
       </a>
-      <a href="https://www.threads.net/@airesresearch.org" target="_blank" rel="noopener">
-        <svg class="threads" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.263 11.097c-.03-3.486-1.92-5.586-5.111-5.586-2.13 0-3.922.963-4.863 2.499l2.062 1.438c.535-.843 1.272-1.543 2.628-1.543 1.528 0 2.318.85 2.544 2.431a15 15 0 0 0-2.236-.173c-4.125 0-6.068 1.867-6.068 4.336s1.943 3.99 4.804 3.99c3.139 0 5.013-2.115 5.781-4.735.798.361 1.348 1.204 1.348 2.47 0 3.387-3.907 5.232-7.22 5.232-4.885 0-8.077-3.207-8.077-8.424 0-6.392 4.223-10.487 9.9-10.487 3.808 0 5.69 1.671 6.97 3.914l2.108-1.475C21.44 2.078 18.331 0 13.663 0 6.227 0 1.168 5.277 1.168 12.934c0 7 4.953 11.066 10.856 11.066 4.878 0 9.809-2.846 9.809-7.716 0-2.545-1.46-4.231-3.569-5.187m-6.33 4.855c-1.077 0-2.026-.512-2.026-1.453 0-1.483 1.822-1.934 3.606-1.934.678 0 1.34.045 1.927.173-.422 1.927-1.671 3.215-3.508 3.214Z"/></svg>
-        <span>airesresearch.org</span>
-      </a>
-    </nav>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg class="icon-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <a href="#who">Who we are</a>
+        <a href="#team">Team</a>
+        <a href="#what">What we do</a>
+        <a href="#research">Research</a>
+        <a class="btn btn-dark" href="#contact">Work with us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow rise" style="--i:0">Hi, we are AIRES!</p>
+          <h1 id="hero-title" class="rise" style="--i:1">
+            <span class="line">We make</span>
+            <span class="line">working with</span>
+            <span class="line">AI feel <span class="nowrap"><span class="mark">natural<svg viewBox="0 0 220 78" aria-hidden="true"><path pathLength="1" d="M34 42C36 16 78 8 114 8c44 0 78 12 78 30 0 22-36 32-80 32-46 0-80-12-78-28z"/></svg></span>.</span></span>
+          </h1>
+          <p class="lede rise" style="--i:2">AIRES is a research team from Indonesia. We study how people and AI work together, when people should trust AI, and how to design AI tools that help everyone.</p>
+          <div class="hero-actions">
+            <a class="btn btn-dark" href="#team">Meet the team <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-ghost" href="#research">See our research</a>
+          </div>
+          <p class="roster">
+            <span class="roster-faces" aria-hidden="true"><span>KL</span><span>MS</span><span>AH</span><span>GB</span></span>
+            <span class="roster-long">4 members in design, product and research</span>
+            <span class="roster-short">4 members</span>
+          </p>
+        </div>
+
+        <figure class="hero-art">
+          <svg viewBox="0 0 640 470" role="img" aria-label="A worried person sits beside a laptop whose screen shows a friendly face. Speech bubbles ask, Is this right? and Can I trust it?">
+            <circle cx="368" cy="214" r="176" fill="#d7ebf8"/>
+
+            <g class="bubble" style="--i:0; --origin:50% 100%">
+              <circle cx="292" cy="58" r="22" fill="#fff" stroke="#23486a" stroke-width="2.2"/>
+              <text x="292" y="66" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="22" font-weight="700" fill="#17324d">?</text>
+            </g>
+            <g class="bubble" style="--i:1; --origin:18% 100%">
+              <path d="M168 78h132c12 0 20 8 20 20v28c0 12-8 20-20 20H214l-22 20 2-20h-26c-12 0-20-8-20-20V98c0-12 8-20 20-20z" fill="#fff" stroke="#23486a" stroke-width="2.2" stroke-linejoin="round"/>
+              <text x="234" y="118" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="600" fill="#17324d">Is this right?</text>
+            </g>
+            <g class="bubble" style="--i:2; --origin:14% 92%">
+              <path d="M392 46h168c12 0 20 8 20 20v28c0 12-8 20-20 20H470l-16 18 1-18h-63c-12 0-20-8-20-20V66c0-12 8-20 20-20z" fill="#fff" stroke="#23486a" stroke-width="2.2" stroke-linejoin="round"/>
+              <text x="476" y="86" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="600" fill="#17324d">Can I trust it?</text>
+            </g>
+            <g class="bubble" style="--i:3; --origin:0% 50%">
+              <circle cx="548" cy="248" r="26" fill="#fff" stroke="#23486a" stroke-width="2.2"/>
+              <text x="548" y="254" text-anchor="middle" font-family="Caveat, cursive" font-size="20" font-weight="700" fill="#1f78c4">why</text>
+            </g>
+
+            <g class="draw" style="--i:0">
+              <circle class="stroke-main" cx="214" cy="214" r="40" fill="#fff" stroke="#23486a" stroke-width="2.3" pathLength="1"/>
+              <path class="stroke-detail" d="M198 208c4 5 8 5 12 0M218 208c4 5 8 5 12 0" fill="none" stroke="#23486a" stroke-width="2.2" stroke-linecap="round" pathLength="1"/>
+              <path class="stroke-detail" d="M202 230c8 6 18 6 26 0" fill="none" stroke="#23486a" stroke-width="2.2" stroke-linecap="round" transform="rotate(180 215 232)" pathLength="1"/>
+            </g>
+            <g class="draw" style="--i:1">
+              <path class="stroke-detail" d="M248 188c6-10 8-10 10-2" fill="none" stroke="#7eb6de" stroke-width="2" stroke-linecap="round" pathLength="1"/>
+              <path class="stroke-detail" d="M252 196c3 6 8 8 6 14" fill="#d7ebf8" stroke="#7eb6de" stroke-width="1.6" pathLength="1"/>
+              <path class="stroke-main" d="M158 268c8-22 28-32 56-32s48 12 56 34c6 18 8 48 4 92-2 16-14 22-28 22h-64c-16 0-28-8-30-24-4-40-2-72 6-92z" fill="#fff" stroke="#23486a" stroke-width="2.3" stroke-linejoin="round" pathLength="1"/>
+            </g>
+            <g class="draw" style="--i:2">
+              <rect class="stroke-main" x="338" y="214" width="168" height="118" rx="12" fill="#fff" stroke="#23486a" stroke-width="2.3" pathLength="1"/>
+            </g>
+            <g class="draw" style="--i:3">
+              <circle class="stroke-detail" cx="404" cy="266" r="3.2" fill="none" stroke="#23486a" stroke-width="7" pathLength="1"/>
+              <circle class="stroke-detail" cx="440" cy="266" r="3.2" fill="none" stroke="#23486a" stroke-width="7" pathLength="1"/>
+              <path class="stroke-detail" d="M404 288c10 12 26 12 36 0" fill="none" stroke="#23486a" stroke-width="2.2" stroke-linecap="round" pathLength="1"/>
+              <path class="stroke-detail" d="M360 332h124" stroke="#23486a" stroke-width="2.2" stroke-linecap="round" pathLength="1"/>
+            </g>
+            <g class="draw" style="--i:4">
+              <path class="stroke-main" d="M318 338h210c8 0 12 5 12 10v8H306v-8c0-5 4-10 12-10z" fill="#fff" stroke="#23486a" stroke-width="2.3" stroke-linejoin="round" pathLength="1"/>
+            </g>
+            <path class="draw stroke-main" style="--i:5" d="M148 392c70 10 150-8 230 4 70 10 130 6 190-6" fill="none" stroke="#23486a" stroke-width="2.2" stroke-linecap="round" pathLength="1"/>
+          </svg>
+          <figcaption>
+            <span>this is the problem we study</span>
+            <svg viewBox="0 0 92 36" aria-hidden="true"><path d="M4 28c22-6 40-22 62-22 8 0 14 2 18 6"/><path d="M72 6l14 6-8 12"/></svg>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="who" aria-labelledby="who-title">
+      <div class="wrap">
+        <p class="eyebrow">Who we are</p>
+        <h2 id="who-title">Designers and researchers<span class="break"></span> who care about <span class="underline">people first<svg viewBox="0 0 240 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9c28 6 62-6 98-2 32 4 70 6 132-3"/></svg></span></h2>
+        <p class="sub">Our members build products in industry and do academic research on trust between people and technology. We bring both views into every project.</p>
+        <ul class="principles">
+          <li>
+            <span class="icon-ring" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="8.5" cy="8" r="2.6"/><circle cx="15.5" cy="9" r="2.1"/><path d="M3.8 18.5c.6-2.8 2.4-4.2 4.7-4.2s4.1 1.4 4.7 4.2"/><path d="M13.2 14.6c1.5-.5 2.8-.2 4 .8 1 1.2 1.5 2.5 1.8 3.6"/></svg>
+            </span>
+            <h3>People first</h3>
+            <p>We start with the people who will use AI, including people who are often left out of design decisions.</p>
+          </li>
+          <li>
+            <span class="icon-ring" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3.2 5.2 6.1v5.6c0 4.2 2.8 6.6 6.8 7.9 4-1.3 6.8-3.7 6.8-7.9V6.1L12 3.2z"/><path d="m8.8 12 2.1 2.1 4.2-4.3"/></svg>
+            </span>
+            <h3>Trust in AI</h3>
+            <p>We measure what makes people trust or doubt AI answers, and how that changes their decisions.</p>
+          </li>
+          <li>
+            <span class="icon-ring" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="13" height="9.5" rx="1.6"/><path d="M7 17.2h6M6.2 20.2h7.6"/><path d="M14.2 13.2 19.6 7.8l1.7 1.7-5.4 5.4-2.2.5.5-2.2z"/></svg>
+            </span>
+            <h3>Useful design</h3>
+            <p>We turn findings into clear design guidance that product teams can use in real products.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="band-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 72" preserveAspectRatio="none"><path d="M0 46c160 28 320-30 500-18 200 14 340-34 520-16 140 14 280 8 420-8v68H0z"/></svg>
+    </div>
+    <section class="band" id="team" aria-labelledby="team-title">
+      <div class="wrap">
+        <p class="eyebrow">The team</p>
+        <h2 id="team-title">Meet the people behind AIRES</h2>
+        <p class="sub">Four members, each with a different area of expertise.</p>
+        <div class="team-grid" data-reveal>
+          <article class="member">
+            <header class="member-head">
+              <span class="avatar" aria-hidden="true">KL</span>
+              <div>
+                <h3>Kalvin Lim</h3>
+                <p class="role">UI/UX and inclusive design</p>
+              </div>
+            </header>
+            <p>Kalvin is a product designer in Jakarta with more than 9 years of experience. He designs interfaces that work for everyone, with a focus on digital accessibility and inclusive design.</p>
+            <ul class="tags">
+              <li>Inclusive design</li>
+              <li>Accessibility</li>
+              <li>Design systems</li>
+            </ul>
+            <dl class="facts">
+              <div><dt>Now</dt><dd>Product Designer at BookCabin (Lion Air Group)</dd></div>
+              <div><dt>Before</dt><dd>Sea and Shopee: a B2B supply chain financing platform, and games for users across Southeast Asia</dd></div>
+              <div><dt>Education</dt><dd>BA in Graphic Design, Universitas Multimedia Nusantara</dd></div>
+            </dl>
+            <p class="links"><a href="https://www.linkedin.com/in/hikalvin" target="_blank" rel="noopener" aria-label="Kalvin Lim on LinkedIn">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></p>
+          </article>
+
+          <article class="member">
+            <header class="member-head">
+              <span class="avatar" aria-hidden="true">MS</span>
+              <div>
+                <h3>M. Septian Widaryanto</h3>
+                <p class="role">AI-applied product design</p>
+              </div>
+            </header>
+            <p>Septian is a senior product designer who uses AI in his design work. He designs B2B dashboards, direct-to-consumer shopping products, and design systems.</p>
+            <ul class="tags">
+              <li>AI-applied design</li>
+              <li>B2B dashboards</li>
+              <li>D2C commerce</li>
+            </ul>
+            <dl class="facts">
+              <div><dt>Now</dt><dd>Senior Product Designer</dd></div>
+              <div><dt>Focus</dt><dd>Data-heavy screens and design systems that scale</dd></div>
+            </dl>
+            <p class="links">
+              <a href="https://www.widaryanto.com/" target="_blank" rel="noopener" aria-label="M. Septian Widaryanto’s portfolio">Portfolio<span class="sr-only"> (opens in a new tab)</span></a>
+              <a href="https://www.linkedin.com/in/mseptianwidaryanto" target="_blank" rel="noopener" aria-label="M. Septian Widaryanto on LinkedIn">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+            </p>
+          </article>
+
+          <article class="member">
+            <header class="member-head">
+              <span class="avatar" aria-hidden="true">AH</span>
+              <div>
+                <h3>Andreas Harnindito</h3>
+                <p class="role">Product management and research</p>
+              </div>
+            </header>
+            <p>Andreas works in product management and researches trust between people and technology. His current research asks whether product teams should trust generative AI when they decide what to build first.</p>
+            <ul class="tags">
+              <li>Product management</li>
+              <li>Scrum and agile</li>
+              <li>Human-computer trust</li>
+            </ul>
+            <dl class="facts">
+              <div><dt>Study</dt><dd>Master’s student, Department of Informatics, Umeå University, Sweden</dd></div>
+              <div><dt>Alumni</dt><dd>Institute of Informatics, Tallinn University, Estonia (2022 to 2024). Thesis on how users in Indonesia trust telemedicine apps</dd></div>
+              <div><dt>Published</dt><dd>Paper at PACIS 2026, the Pacific Asia Conference on Information Systems</dd></div>
+              <div><dt>Certified</dt><dd>Certified Associate in Scrum Fundamentals (CASF)</dd></div>
+            </dl>
+            <p class="links">
+              <a href="https://www.researchgate.net/publication/397786254_Trust_in_Telemedicine_Services_Mobile_Application_A_Case_Study_in_Indonesia_Post-pandemic_Investigating_Factors_Affecting_Users'_Trust_Perception" target="_blank" rel="noopener" aria-label="Andreas Harnindito on ResearchGate">ResearchGate<span class="sr-only"> (opens in a new tab)</span></a>
+              <a href="https://medium.com/@andreeyash" target="_blank" rel="noopener" aria-label="Andreas Harnindito’s website">Website<span class="sr-only"> (opens in a new tab)</span></a>
+            </p>
+          </article>
+
+          <article class="member">
+            <header class="member-head">
+              <span class="avatar" aria-hidden="true">GB</span>
+              <div>
+                <h3>Ghisani Ghina Bakhitah</h3>
+                <p class="role">UI/UX design for social impact</p>
+              </div>
+            </header>
+            <p>Ghisani is a UI/UX designer who builds digital products for social impact. She has designed for organizations such as UN Women, UNICEF and The Asia Foundation, and works to make websites accessible for people with disabilities.</p>
+            <ul class="tags">
+              <li>Social impact design</li>
+              <li>Accessibility</li>
+              <li>Inclusive websites</li>
+            </ul>
+            <dl class="facts">
+              <div><dt>Now</dt><dd>Remote UI/UX Designer</dd></div>
+              <div><dt>Clients</dt><dd>UN Women, UNICEF, The Asia Foundation, Viamo and Wardah Beauty</dd></div>
+              <div><dt>Projects</dt><dd>Simpulmadani, a platform for civil society collaboration in Indonesia. An inclusive website for Pertuni Jatim, the Indonesian Blind Union in East Java</dd></div>
+              <div><dt>Teaching</dt><dd>Online Canva classes for people with disabilities. Mentor in #SheLeadsTech with Ladies in Tech and AWS</dd></div>
+            </dl>
+            <p class="links">
+              <a href="https://gghina-portfolio.webflow.io/" target="_blank" rel="noopener" aria-label="Ghisani Ghina Bakhitah’s portfolio">Portfolio<span class="sr-only"> (opens in a new tab)</span></a>
+              <a href="https://www.linkedin.com/in/ghisani-ghina-bakhitah" target="_blank" rel="noopener" aria-label="Ghisani Ghina Bakhitah on LinkedIn">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+              <a href="https://medium.com/@GhisaniGhina" target="_blank" rel="noopener" aria-label="Ghisani Ghina Bakhitah on Medium">Medium<span class="sr-only"> (opens in a new tab)</span></a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="what" aria-labelledby="what-title">
+      <div class="wrap">
+        <p class="eyebrow">What we do</p>
+        <h2 id="what-title">We listen first, then<span class="break"></span> share what we learn</h2>
+        <p class="sub">Every study follows the same three steps.</p>
+        <ol class="steps" data-reveal>
+          <li style="--i:0">
+            <span class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path pathLength="1" d="M7.5 12.5c0-3.4 2.1-6.2 5.2-6.2 3 0 5.3 2.2 5.3 5.4 0 2.3-.9 3.5-1.7 4.5-.7.9-1.2 1.5-1.2 2.3 0 1.2-.8 2-1.9 2s-1.8-.8-1.8-1.9"/><path pathLength="1" d="M10.4 12.6c0-1.7 1-2.9 2.3-2.9 1.2 0 2.1.9 2.1 2.1 0 1.2-.5 1.7-1 2.3"/></svg>
+            </span>
+            <p class="step-kicker">Step 1</p>
+            <h3>Listen</h3>
+            <p>We hold discussions and interviews with the people affected, such as parents and product teams.</p>
+          </li>
+          <li style="--i:1">
+            <svg class="step-arrow" viewBox="0 0 88 40" aria-hidden="true"><path d="M4 26c20-8 38-20 58-20 8 0 14 3 18 7"/><path d="M66 6l16 7-9 12"/></svg>
+            <span class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle pathLength="1" cx="11" cy="11" r="6"/><path pathLength="1" d="m20 20-4.2-4.2"/></svg>
+            </span>
+            <p class="step-kicker">Step 2</p>
+            <h3>Analyze</h3>
+            <p>We look for patterns in how people use AI, where they trust it, and where it lets them down.</p>
+          </li>
+          <li style="--i:2">
+            <svg class="step-arrow" viewBox="0 0 88 40" aria-hidden="true"><path d="M4 26c20-8 38-20 58-20 8 0 14 3 18 7"/><path d="M66 6l16 7-9 12"/></svg>
+            <span class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path pathLength="1" d="M21 4 11.5 13.5"/><path pathLength="1" d="M21 4 14.2 20l-2.8-6.2L5 11 21 4z"/></svg>
+            </span>
+            <p class="step-kicker">Step 3</p>
+            <h3>Share</h3>
+            <p>We share findings with experts, such as child psychologists, and publish them for designers and researchers.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="band research" id="research" aria-labelledby="research-title">
+      <div class="wrap">
+        <p class="eyebrow">Research</p>
+        <h2 id="research-title">What we are working on</h2>
+        <div class="research-grid" data-reveal>
+          <article class="panel">
+            <p class="chip">Upcoming study</p>
+            <h3>A discussion with mothers of children aged <span class="nowrap">3 to 7</span></h3>
+            <p>We will listen to how mothers of young children see AI in daily family life. We will then share the findings with child psychologists.</p>
+          </article>
+          <article class="panel">
+            <p class="chip">Member publications</p>
+            <h3>Published work</h3>
+            <div class="pub">
+              <h4><a href="https://aisel.aisnet.org/pacis2026/ai_ml/ai_ml/15" target="_blank" rel="noopener">Should Teams Trust GenAI for Product <span class="nowrap">Prioritization?<svg class="ext-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span><span class="sr-only"> (opens in a new tab)</span></a></h4>
+              <p class="cite">A. Harnindito, S. G. Saputra. PACIS 2026, track on Artificial Intelligence and Machine Learning.</p>
+            </div>
+            <div class="pub">
+              <h4><a href="https://www.etera.ee/s/CTx8GRVGFl" target="_blank" rel="noopener">Trust in Telemedicine Services Mobile Application: A Case Study in Indonesia <span class="nowrap">Post-pandemic<svg class="ext-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span><span class="sr-only"> (opens in a new tab)</span></a></h4>
+              <p class="cite">A. Harnindito. Master’s thesis, Tallinn University, 2024. Supervised by G. Beltrão and S. C. Sousa.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section" id="contact" data-reveal aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="cta">
+          <div>
+            <p class="eyebrow">Let’s talk</p>
+            <h2 id="contact-title">Want to join a study or work with us?</h2>
+            <p>We welcome researchers, designers and parents who want to take part. Reach out to any member of the team.</p>
+          </div>
+          <a class="btn btn-dark" href="mailto:contact@airesresearch.org?subject=Joining%20a%20study%20or%20working%20with%20AIRES">Contact a member</a>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="footer-brand">
+        <a class="footer-logo" href="#top" aria-label="AIRES"><img src="assets/aires-logo.svg" alt="AIRES" width="213" height="90"></a>
+        <a href="https://airesresearch.org/">airesresearch.org</a>
+      </p>
+      <p><a href="mailto:contact@airesresearch.org">contact@airesresearch.org</a></p>
+      <p>Research on human–AI collaboration</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

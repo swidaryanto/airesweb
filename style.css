@@ -746,6 +746,7 @@ html.menu-open .menu-btn .icon-close { display: block; }
   .cta::after { display: none; }
   .cta .btn { height: 48px; }
   .facts div { grid-template-columns: 1fr; }
+  .facts dt:empty { display: none; }
 }
 
 @media (max-width: 559px) {

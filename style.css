@@ -606,7 +606,7 @@ html.menu-open .menu-btn .icon-close { display: block; }
     top: 26px;
     left: -76px;
     fill: none;
-    stroke: var(--blue-bright);
+    stroke: #2563eb;
     stroke-width: 2.2;
     stroke-linecap: round;
     stroke-linejoin: round;

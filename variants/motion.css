@@ -1,0 +1,554 @@
+/* Motion for Field Notebook variants. Runs only under .js-motion / .js-reduced.
+   Distances halve and durations shorten 25% at 700px. Idle ? + sweat stay at 2s. */
+
+:root { --m: 1; }
+
+@media (max-width: 700px) {
+  :root { --m: 0.75; }
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes rise-hero {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes rise-hero-sm {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes rise-a {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes rise-a-sm {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes rise-c {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes rise-c-sm {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes rise-pop {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes rise-pop-sm {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes draw {
+  from { stroke-dashoffset: 100; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes draw-over {
+  from { stroke-dashoffset: 108; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes draw-border {
+  from { stroke-dashoffset: 10000; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pop-c {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes write {
+  from { clip-path: inset(0 100% 0 0); -webkit-clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); -webkit-clip-path: inset(0 0 0 0); }
+}
+
+@keyframes q-float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes q-float-sm {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes drip {
+  0% { transform: translateY(0); opacity: 1; }
+  78% { transform: translateY(14px); opacity: 1; }
+  100% { transform: translateY(14px); opacity: 0; }
+}
+
+@keyframes drip-sm {
+  0% { transform: translateY(0); opacity: 1; }
+  78% { transform: translateY(7px); opacity: 1; }
+  100% { transform: translateY(7px); opacity: 0; }
+}
+
+@keyframes blink {
+  0%, 88%, 100% { opacity: 1; }
+  93% { opacity: 0; }
+}
+
+@keyframes think {
+  0%, 100% { opacity: 0; }
+  14%, 86% { opacity: 1; }
+}
+
+@keyframes mouth-hide {
+  0%, 100% { opacity: 1; }
+  16%, 84% { opacity: 0; }
+}
+
+@keyframes dot {
+  0%, 100% { opacity: 0.2; }
+  40% { opacity: 1; }
+}
+
+@keyframes why-wobble {
+  0% { transform: rotate(0deg); }
+  2.2% { transform: rotate(-4deg); }
+  4.4% { transform: rotate(4deg); }
+  6.7% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.bubble, .float-q, #why-spin {
+  transform-box: fill-box;
+  transform-origin: var(--tail, 50% 100%);
+}
+
+#why-spin { transform-origin: 50% 50%; }
+
+#art.paused .float-q,
+#art.paused #stroke-sweat,
+#art.paused #robot-eyes,
+#art.paused #why-spin {
+  animation-play-state: paused;
+}
+
+/* ---------- A Sketchbook ---------- */
+
+html.js-motion[data-variant="a"] .hero h1 {
+  animation: rise-hero calc(400ms * var(--m)) cubic-bezier(.22, 1, .36, 1) both;
+}
+
+html.js-motion[data-variant="a"] .circled path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 108;
+  animation: draw-over calc(900ms * var(--m)) cubic-bezier(.65, 0, .35, 1) calc(300ms * var(--m)) forwards;
+}
+
+html.js-motion[data-variant="a"] #paper {
+  opacity: 0;
+  animation: fade calc(220ms * var(--m)) linear calc(460ms * var(--m)) forwards;
+}
+
+html.js-motion[data-variant="a"] [id^="stroke-"]:not(#stroke-sweat) {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw calc(1000ms * var(--m)) cubic-bezier(.65, 0, .35, 1) calc((500ms + var(--s, 0) * 60ms) * var(--m)) forwards;
+}
+
+html.js-motion[data-variant="a"] #eyes-wrap {
+  opacity: 0;
+  animation: fade calc(180ms * var(--m)) linear calc(1040ms * var(--m)) forwards;
+}
+
+html.js-motion[data-variant="a"] #robot-eyes {
+  animation: blink 3s linear 3 calc(1500ms * var(--m));
+}
+
+html.js-motion[data-variant="a"] #sweat-wrap {
+  opacity: 0;
+  animation: fade calc(180ms * var(--m)) linear calc(860ms * var(--m)) forwards;
+}
+
+html.js-motion[data-variant="a"] .bubble {
+  opacity: 0;
+  transform: scale(0.6);
+  animation: pop calc(350ms * var(--m)) cubic-bezier(.34, 1.56, .64, 1) calc((1300ms + var(--b, 0) * 120ms) * var(--m)) both;
+}
+
+html.js-motion[data-variant="a"] .note-words {
+  animation: fade calc(400ms * var(--m)) ease calc(1300ms * var(--m)) both;
+}
+
+html.js-motion[data-variant="a"] .float-q {
+  animation: q-float 2s ease-in-out 3;
+  animation-delay: calc(1300ms * var(--m));
+}
+
+html.js-motion[data-variant="a"] #stroke-sweat {
+  animation: drip 2s cubic-bezier(.4, .05, .75, 1) 3;
+  animation-delay: calc(1300ms * var(--m) + 1s);
+}
+
+html.js-motion[data-variant="a"] .reveal,
+html.js-motion[data-variant="a"] .kicker {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+html.js-motion[data-variant="a"] .section.in .reveal {
+  animation: rise-a calc(400ms * var(--m)) cubic-bezier(.22, 1, .36, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 60ms * var(--m));
+}
+
+html.js-motion[data-variant="a"] .section.in .kicker {
+  animation: rise-a calc(400ms * var(--m)) cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 701px) {
+  html.js-motion[data-variant="a"] .card {
+    transition: transform 200ms cubic-bezier(.22, 1, .36, 1);
+  }
+
+  html.js-motion[data-variant="a"] .card:hover {
+    transform: translateY(-4px) rotate(-0.5deg);
+  }
+
+  html.js-motion[data-variant="a"] .btn-primary:hover,
+  html.js-motion[data-variant="a"] .btn-light:hover {
+    transform: translateY(-2px);
+  }
+
+  html.js-motion[data-variant="a"] .btn:active {
+    transform: translateY(-2px) scale(0.97);
+  }
+}
+
+@media (max-width: 700px) {
+  html.js-motion[data-variant="a"] .hero h1 { animation-name: rise-hero-sm; }
+
+  html.js-motion[data-variant="a"] .reveal,
+  html.js-motion[data-variant="a"] .kicker { transform: translateY(6px); }
+
+  html.js-motion[data-variant="a"] .section.in .reveal,
+  html.js-motion[data-variant="a"] .section.in .kicker { animation-name: rise-a-sm; }
+
+  html.js-motion[data-variant="a"] .float-q { animation-name: q-float-sm; }
+  html.js-motion[data-variant="a"] #stroke-sweat { animation-name: drip-sm; }
+
+  html.js-motion[data-variant="a"] .card:active { transform: translateY(-2px); }
+  html.js-motion[data-variant="a"] .btn:active { transform: scale(0.97); }
+}
+
+html.js-reduced[data-variant="a"] .reveal,
+html.js-reduced[data-variant="a"] .kicker,
+html.js-reduced[data-variant="a"] .hero h1,
+html.js-reduced[data-variant="a"] .note-words {
+  opacity: 0;
+}
+
+html.js-reduced[data-variant="a"] .section.in .reveal,
+html.js-reduced[data-variant="a"] .section.in .kicker,
+html.js-reduced[data-variant="a"] .hero h1,
+html.js-reduced[data-variant="a"] .note-words {
+  animation: fade 150ms ease forwards;
+}
+
+/* ---------- B Margin notes ---------- */
+
+html.js-motion[data-variant="b"] .circled path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw calc(700ms * var(--m)) ease-out calc(200ms * var(--m)) forwards;
+}
+
+html.js-motion[data-variant="b"] .scene {
+  opacity: 0;
+  animation: fade calc(300ms * var(--m)) ease both;
+}
+
+html.js-motion[data-variant="b"] .note-words {
+  clip-path: inset(0 100% 0 0);
+  -webkit-clip-path: inset(0 100% 0 0);
+  animation: write calc(600ms * var(--m)) linear calc(900ms * var(--m)) forwards;
+}
+
+html.js-motion[data-variant="b"] #stroke-note path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw calc(300ms * var(--m)) ease-in-out calc(1500ms * var(--m)) forwards;
+}
+
+html.js-motion[data-variant="b"] .reveal { opacity: 0; }
+
+html.js-motion[data-variant="b"] .section.in .reveal {
+  animation: fade calc(250ms * var(--m)) ease forwards;
+}
+
+html.js-motion[data-variant="b"] .kicker {
+  clip-path: inset(0 100% 0 0);
+  -webkit-clip-path: inset(0 100% 0 0);
+}
+
+html.js-motion[data-variant="b"] .section.in .kicker {
+  animation: write calc(500ms * var(--m)) linear forwards;
+}
+
+html.js-motion[data-variant="b"] .margin-arrow path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+
+html.js-motion[data-variant="b"] .section.in .margin-arrow path {
+  animation: draw calc(300ms * var(--m)) ease-in-out calc(500ms * var(--m)) forwards;
+}
+
+[data-variant="b"] .links a { border-bottom: 0; }
+[data-variant="b"] .scribble { display: block; }
+
+[data-variant="b"] .scribble path {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 2;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 10000;
+  stroke-dashoffset: 0;
+}
+
+[data-variant="b"] .sketch-border {
+  display: block;
+  position: absolute;
+  inset: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  pointer-events: none;
+  overflow: visible;
+}
+
+[data-variant="b"] .sketch-border path {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 10000;
+  stroke-dashoffset: 10000;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 701px) {
+  [data-variant="b"] .links a:hover .scribble path {
+    animation: draw-border 300ms ease forwards;
+  }
+
+  [data-variant="b"] .card:hover .sketch-border path {
+    animation: draw-border 400ms ease forwards;
+  }
+}
+
+@media (max-width: 700px) {
+  [data-variant="b"] .links a:active .scribble path {
+    animation: draw-border calc(300ms * var(--m)) ease forwards;
+  }
+
+  [data-variant="b"] .card:active .sketch-border path {
+    animation: draw-border calc(400ms * var(--m)) ease forwards;
+  }
+}
+
+/* ---------- C The conversation ---------- */
+
+html.js-motion[data-variant="c"] .hero h1 {
+  animation: rise-hero calc(400ms * var(--m)) cubic-bezier(.22, 1, .36, 1) both;
+}
+
+html.js-motion[data-variant="c"] .circled path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 108;
+  animation: draw-over calc(600ms * var(--m)) cubic-bezier(.65, 0, .35, 1) calc(300ms * var(--m)) forwards;
+}
+
+html.js-motion[data-variant="c"] #sketch,
+html.js-motion[data-variant="c"] .note-words,
+html.js-motion[data-variant="c"] .note-arrow {
+  opacity: 0;
+  animation: fade calc(300ms * var(--m)) ease both;
+}
+
+html.js-motion[data-variant="c"] #bubble-is-this-right,
+html.js-motion[data-variant="c"] #bubble-can-i-trust,
+html.js-motion[data-variant="c"] #bubble-why {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: pop-c calc(250ms * var(--m)) cubic-bezier(.34, 1.56, .64, 1) both;
+}
+
+html.js-motion[data-variant="c"] #bubble-is-this-right { animation-delay: calc(800ms * var(--m)); }
+html.js-motion[data-variant="c"] #bubble-can-i-trust { animation-delay: calc(1900ms * var(--m)); }
+html.js-motion[data-variant="c"] #bubble-why { animation-delay: calc(2600ms * var(--m)); }
+
+html.js-motion[data-variant="c"] #robot-dots {
+  animation: think calc(600ms * var(--m)) linear calc(1300ms * var(--m)) both;
+}
+
+html.js-motion[data-variant="c"] #robot-dots circle {
+  animation: dot calc(600ms * var(--m)) linear calc(1300ms * var(--m)) both;
+}
+
+html.js-motion[data-variant="c"] #robot-dots circle:nth-child(2) { animation-delay: calc(1300ms * var(--m) + 140ms); }
+html.js-motion[data-variant="c"] #robot-dots circle:nth-child(3) { animation-delay: calc(1300ms * var(--m) + 280ms); }
+
+html.js-motion[data-variant="c"] #stroke-robot-mouth {
+  animation: mouth-hide calc(600ms * var(--m)) linear calc(1300ms * var(--m)) both;
+}
+
+html.js-motion[data-variant="c"] #robot-eyes {
+  animation: blink calc(600ms * var(--m)) linear calc(1300ms * var(--m)) 1;
+}
+
+html.js-motion[data-variant="c"] .float-q {
+  animation: q-float 2s ease-in-out 3;
+  animation-delay: calc(300ms * var(--m));
+}
+
+html.js-motion[data-variant="c"] #stroke-sweat {
+  animation: drip 2s cubic-bezier(.4, .05, .75, 1) 3;
+  animation-delay: calc(300ms * var(--m) + 1s);
+}
+
+html.js-motion[data-variant="c"] #why-spin {
+  animation-name: why-wobble;
+  animation-duration: calc(6s * var(--m));
+  animation-timing-function: linear;
+  animation-iteration-count: 3;
+  animation-delay: calc(6s * var(--m));
+}
+
+html.js-motion[data-variant="c"] .reveal,
+html.js-motion[data-variant="c"] .kicker {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+html.js-motion[data-variant="c"] .section.in .reveal {
+  animation: rise-c calc(400ms * var(--m)) cubic-bezier(.22, 1, .36, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 60ms * var(--m));
+}
+
+html.js-motion[data-variant="c"] .section.in .kicker {
+  animation: rise-c calc(400ms * var(--m)) cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+html.js-motion[data-variant="c"] .team-grid .reveal,
+html.js-motion[data-variant="c"] .research-grid .reveal {
+  transform: translateY(6px);
+}
+
+html.js-motion[data-variant="c"] .section.in .team-grid .reveal,
+html.js-motion[data-variant="c"] .section.in .research-grid .reveal {
+  animation-name: rise-pop;
+  animation-duration: calc(250ms * var(--m));
+  animation-timing-function: cubic-bezier(.34, 1.56, .64, 1);
+  animation-delay: calc(var(--i, 0) * 80ms * var(--m));
+}
+
+html.js-motion[data-variant="c"] .btn-primary::after,
+html.js-motion[data-variant="c"] .btn-light::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  bottom: 7px;
+  width: 9px;
+  height: 9px;
+  background: inherit;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 701px) {
+  html.js-motion[data-variant="c"] .card {
+    transition: transform 200ms cubic-bezier(.22, 1, .36, 1);
+  }
+
+  html.js-motion[data-variant="c"] .card:hover { transform: translateY(-3px); }
+
+  html.js-motion[data-variant="c"] .btn:hover::after {
+    opacity: 1;
+    transform: translateY(3px);
+  }
+
+  html.js-motion[data-variant="c"] .btn:active { transform: scale(0.96); }
+}
+
+@media (max-width: 700px) {
+  html.js-motion[data-variant="c"] .hero h1 { animation-name: rise-hero-sm; }
+
+  html.js-motion[data-variant="c"] .reveal,
+  html.js-motion[data-variant="c"] .kicker { transform: translateY(4px); }
+
+  html.js-motion[data-variant="c"] .team-grid .reveal,
+  html.js-motion[data-variant="c"] .research-grid .reveal { transform: translateY(3px); }
+
+  html.js-motion[data-variant="c"] .section.in .reveal,
+  html.js-motion[data-variant="c"] .section.in .kicker { animation-name: rise-c-sm; }
+
+  html.js-motion[data-variant="c"] .section.in .team-grid .reveal,
+  html.js-motion[data-variant="c"] .section.in .research-grid .reveal { animation-name: rise-pop-sm; }
+
+  html.js-motion[data-variant="c"] .float-q { animation-name: q-float-sm; }
+  html.js-motion[data-variant="c"] #stroke-sweat { animation-name: drip-sm; }
+
+  html.js-motion[data-variant="c"] .card:active { transform: translateY(-1.5px); }
+  html.js-motion[data-variant="c"] .btn:active { transform: scale(0.96); }
+  html.js-motion[data-variant="c"] .btn:active::after { opacity: 1; transform: translateY(3px); }
+}
+
+/* Reduced motion keeps the drawn end state. A fades in 150ms via .js-reduced. */
+
+@media (prefers-reduced-motion: reduce) {
+  html.js-motion *,
+  html.js-motion *::before,
+  html.js-motion *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html.js-motion [id^="stroke-"],
+  html.js-motion .circled path,
+  html.js-motion .bubble,
+  html.js-motion .reveal,
+  html.js-motion .kicker,
+  html.js-motion .note-words,
+  html.js-motion .scene,
+  html.js-motion #sketch,
+  html.js-motion #paper,
+  html.js-motion #eyes-wrap,
+  html.js-motion #sweat-wrap,
+  html.js-motion .hero h1,
+  html.js-motion .note-arrow {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}

@@ -136,13 +136,6 @@
   }
 
   root.classList.add('js-motion');
-  if (steps) {
-    steps.querySelectorAll('.step-arrow path').forEach(function (path) {
-      var len = path.getTotalLength() + 4;
-      path.style.strokeDasharray = String(len);
-      path.style.strokeDashoffset = String(len);
-    });
-  }
   var seen = new WeakSet();
   var reveal = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {

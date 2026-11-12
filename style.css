@@ -495,7 +495,6 @@ html.menu-open .menu-btn .icon-close { display: block; }
 .steps {
   --step-circle: 50px;
   --step-gap: 36px;
-  --step-arrow: 72px;
   list-style: none;
   padding: 0;
   margin-top: 48px;
@@ -607,36 +606,35 @@ html.menu-open .menu-btn .icon-close { display: block; }
 
 @media (min-width: 981px) {
   .step-arrow {
+    --arrow-w: 72px;
     display: block;
     position: absolute;
-    width: var(--step-arrow);
-    height: 14px;
-    top: calc((var(--step-circle) - 14px) / 2);
-    left: calc(-50% + (var(--step-circle) - var(--step-gap) - var(--step-arrow)) / 2);
+    width: var(--arrow-w);
+    height: 36px;
+    top: calc((var(--step-circle) - 36px) / 2);
+    left: calc(-50% + (var(--step-circle) - var(--step-gap) - var(--arrow-w)) / 2);
     pointer-events: none;
   }
   .step-arrow svg {
-    width: var(--step-arrow);
-    height: 14px;
     fill: none;
     stroke: #2563eb;
-    stroke-width: 1.75;
+    stroke-width: 2px;
     stroke-linecap: round;
     stroke-linejoin: round;
     overflow: visible;
     max-width: none;
   }
   .step-arrow-shaft {
-    stroke-dasharray: 4 5;
-  }
-}
-
-@media (min-width: 981px) and (prefers-reduced-motion: no-preference) {
-  .step-arrow-shaft {
-    animation: step-dash 1s linear infinite;
+    display: block;
+    width: calc(100% - 2px);
+    height: 36px;
   }
   .step-arrow-head {
-    animation: step-head-nudge 1s ease-in-out infinite;
+    position: absolute;
+    right: 0;
+    top: 4px;
+    width: 16px;
+    height: 28px;
   }
 }
 
@@ -831,6 +829,30 @@ html.menu-open .menu-btn .icon-close { display: block; }
   }
   html.js-motion .steps.is-in li:nth-child(2) .step-icon { animation-delay: 750ms; }
   html.js-motion .steps.is-in li:nth-child(3) .step-icon { animation-delay: 1500ms; }
+  @media (min-width: 981px) {
+    /* 3.2s loop: draw 600ms (shaft, then head), hold 1s, fade 300ms, rest. Arrow 2 starts 750ms later. */
+    html.js-motion .step-arrow path {
+      stroke-dasharray: var(--len) calc(var(--len) + 6px);
+      stroke-dashoffset: calc(var(--len) + 3px);
+    }
+    html.js-motion .steps.is-in .step-arrow {
+      animation: arrow-opacity 3200ms linear infinite;
+    }
+    html.js-motion .steps.is-in .step-arrow-shaft path {
+      animation: arrow-shaft 3200ms linear infinite;
+    }
+    html.js-motion .steps.is-in .step-arrow-head path {
+      animation: arrow-head 3200ms linear infinite;
+    }
+    html.js-motion .steps.is-in li:nth-child(3) .step-arrow,
+    html.js-motion .steps.is-in li:nth-child(3) .step-arrow path {
+      animation-delay: 750ms;
+    }
+    html.js-motion .steps.is-paused .step-arrow,
+    html.js-motion .steps.is-paused .step-arrow path {
+      animation-play-state: paused;
+    }
+  }
   @media (max-width: 980px) {
     html.js-motion .steps.is-in li:nth-child(2) .step-icon,
     html.js-motion .steps.is-in li:nth-child(3) .step-icon {
@@ -971,6 +993,7 @@ html.menu-open .menu-btn .icon-close { display: block; }
   html.js-motion .cta h2,
   html.js-motion .cta::after,
   html.js-motion .steps .step-icon,
+  html.js-motion .step-arrow,
   html.js-motion .step-arrow path {
     animation: none !important;
     opacity: 1 !important;
@@ -1015,10 +1038,26 @@ html.menu-open .menu-btn .icon-close { display: block; }
   to { opacity: 1; transform: none; }
 }
 @keyframes draw { to { stroke-dashoffset: 0; } }
-@keyframes step-dash { to { stroke-dashoffset: -9; } }
-@keyframes step-head-nudge {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(2px); }
+@keyframes arrow-shaft {
+  0% { stroke-dashoffset: calc(var(--len) + 3px); animation-timing-function: ease-in-out; }
+  14.375% { stroke-dashoffset: 0; animation-timing-function: linear; }
+  60% { stroke-dashoffset: 0; animation-timing-function: linear; }
+  60.5% { stroke-dashoffset: calc(var(--len) + 3px); }
+  100% { stroke-dashoffset: calc(var(--len) + 3px); }
+}
+@keyframes arrow-head {
+  0% { stroke-dashoffset: calc(var(--len) + 3px); animation-timing-function: linear; }
+  14.375% { stroke-dashoffset: calc(var(--len) + 3px); animation-timing-function: ease-in-out; }
+  18.75% { stroke-dashoffset: 0; animation-timing-function: linear; }
+  60% { stroke-dashoffset: 0; animation-timing-function: linear; }
+  60.5% { stroke-dashoffset: calc(var(--len) + 3px); }
+  100% { stroke-dashoffset: calc(var(--len) + 3px); }
+}
+@keyframes arrow-opacity {
+  0% { opacity: 1; animation-timing-function: linear; }
+  50% { opacity: 1; animation-timing-function: ease; }
+  59.375% { opacity: 0; }
+  100% { opacity: 0; }
 }
 @keyframes step-pop {
   from { opacity: 0; transform: scale(0.94); }

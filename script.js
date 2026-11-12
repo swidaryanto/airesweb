@@ -1,4 +1,4 @@
-/* AIRES — menu, section highlight, and one-shot motion. No dependencies. */
+/* AIRES — menu, section highlight, and motion. No dependencies. */
 (function () {
   'use strict';
 
@@ -135,6 +135,11 @@
     return;
   }
 
+  if (steps) {
+    steps.querySelectorAll('.step-arrow path').forEach(function (path) {
+      path.style.setProperty('--len', path.getTotalLength() + 'px');
+    });
+  }
   root.classList.add('js-motion');
   var seen = new WeakSet();
   var reveal = new IntersectionObserver(function (entries) {
@@ -156,17 +161,19 @@
   });
 
   if (steps) {
+    var stepsObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          steps.classList.add('is-in');
+          steps.classList.remove('is-paused');
+        } else {
+          steps.classList.add('is-paused');
+        }
+      });
+    }, { threshold: 0.2 });
+    stepsObserver.observe(steps);
     if (partlyInView(steps)) playSteps();
-    else {
-      var stepsObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          playSteps();
-          stepsObserver.disconnect();
-        });
-      }, { threshold: 0.2 });
-      stepsObserver.observe(steps);
-    }
+    else steps.classList.add('is-paused');
   }
 
   window.setTimeout(function () {

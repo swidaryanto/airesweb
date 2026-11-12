@@ -374,7 +374,12 @@ html.menu-open .menu-btn .icon-close { display: block; }
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.step-icon { margin-bottom: 16px; }
+.step-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 16px;
+}
+.step-icon svg { width: 27px; height: 27px; }
 
 .band-wave { margin-bottom: -1px; line-height: 0; }
 .band-wave svg { width: 100%; height: 56px; }
@@ -488,12 +493,14 @@ html.menu-open .menu-btn .icon-close { display: block; }
 }
 
 .steps {
+  --step-circle: 50px;
+  --step-gap: 36px;
   list-style: none;
   padding: 0;
   margin-top: 48px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px 36px;
+  gap: 28px var(--step-gap);
 }
 .steps li { position: relative; min-width: 0; }
 .step-kicker {
@@ -601,15 +608,32 @@ html.menu-open .menu-btn .icon-close { display: block; }
   .step-arrow {
     display: block;
     position: absolute;
-    width: 66px;
     height: 36px;
-    top: 22px;
-    left: -72px;
+    top: 7px;
+    left: calc(-100% + var(--step-circle) - var(--step-gap) + 4px);
+    width: calc(100% - var(--step-circle) + var(--step-gap) - 6px);
+    pointer-events: none;
+  }
+  .step-arrow svg {
     fill: none;
     stroke: #2563eb;
-    stroke-width: 2;
+    stroke-width: 2px;
     stroke-linecap: round;
     stroke-linejoin: round;
+    overflow: visible;
+    max-width: none;
+  }
+  .step-arrow-shaft {
+    display: block;
+    width: calc(100% - 2px);
+    height: 36px;
+  }
+  .step-arrow-head {
+    position: absolute;
+    right: 0;
+    top: 4px;
+    width: 16px;
+    height: 28px;
   }
 }
 
@@ -795,10 +819,38 @@ html.menu-open .menu-btn .icon-close { display: block; }
     opacity: 0;
     transform: translateY(8px);
   }
-  html.js-motion .step-icon svg path,
-  html.js-motion .step-icon svg circle {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
+  html.js-motion .steps .step-icon {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  html.js-motion .steps.is-in .step-icon {
+    animation: step-pop 250ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  html.js-motion .steps.is-in li:nth-child(2) .step-icon { animation-delay: 750ms; }
+  html.js-motion .steps.is-in li:nth-child(3) .step-icon { animation-delay: 1500ms; }
+  @media (min-width: 981px) {
+    html.js-motion .step-arrow path {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+    }
+    html.js-motion .step-arrow-shaft path { stroke-dashoffset: 1.02; }
+    html.js-motion .step-arrow-head path { stroke-dashoffset: 1.25; }
+    html.js-motion .steps.is-in .step-arrow-shaft path {
+      animation: draw 420ms ease-in-out forwards;
+    }
+    html.js-motion .steps.is-in li:nth-child(2) .step-arrow-shaft path { animation-delay: 250ms; }
+    html.js-motion .steps.is-in li:nth-child(3) .step-arrow-shaft path { animation-delay: 1000ms; }
+    html.js-motion .steps.is-in .step-arrow-head path {
+      animation: draw 140ms ease-in-out forwards;
+    }
+    html.js-motion .steps.is-in li:nth-child(2) .step-arrow-head path { animation-delay: 610ms; }
+    html.js-motion .steps.is-in li:nth-child(3) .step-arrow-head path { animation-delay: 1360ms; }
+  }
+  @media (max-width: 980px) {
+    html.js-motion .steps.is-in li:nth-child(2) .step-icon,
+    html.js-motion .steps.is-in li:nth-child(3) .step-icon {
+      animation-delay: calc(var(--i) * 160ms);
+    }
   }
   html.js-motion #contact:not(.is-in) .cta::after { opacity: 0; }
   html.js-motion #contact:not(.is-in) .cta h2 {
@@ -815,11 +867,6 @@ html.menu-open .menu-btn .icon-close { display: block; }
     animation: rise-card 450ms var(--ease-out) calc(var(--i) * 60ms) both;
     will-change: transform, opacity;
   }
-  html.js-motion .steps li.is-in .step-icon svg path,
-  html.js-motion .steps li.is-in .step-icon svg circle {
-    animation: draw 500ms var(--ease-draw) calc(var(--i) * 150ms) forwards;
-    will-change: stroke-dashoffset;
-  }
   html.js-motion #contact.is-in .cta::after { animation: fade-in 450ms ease forwards; }
   html.js-motion #contact.is-in .cta h2 {
     animation: rise12 450ms var(--ease-out) both;
@@ -830,6 +877,11 @@ html.menu-open .menu-btn .icon-close { display: block; }
 .panel.settled,
 .cta.settled,
 .step-icon.settled { animation: none; opacity: 1; }
+  html.js-motion .steps .step-icon.settled {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 .member, .panel { transition: transform 200ms ease-out; }
   .member:active, .panel:active {
     transform: scale(0.98);
@@ -883,14 +935,6 @@ html.menu-open .menu-btn .icon-close { display: block; }
       animation-duration: 320ms;
       animation-delay: calc(min(var(--i), 3) * 40ms);
     }
-    html.js-motion .steps li.is-in .step-icon svg path,
-    html.js-motion .steps li.is-in .step-icon svg circle {
-      animation-duration: 350ms;
-      animation-delay: calc(var(--i) * 80ms);
-    }
-    html.js-motion .steps li.is-in .step-icon {
-      animation: wiggle 350ms ease calc(var(--i) * 80ms + 500ms) 1 both;
-    }
     html.js-motion #contact:not(.is-in) .cta h2 { transform: none; }
     html.js-motion #contact.is-in .cta {
       animation: reveal-m 320ms var(--ease-out) both;
@@ -940,7 +984,9 @@ html.menu-open .menu-btn .icon-close { display: block; }
   html.js-motion .panel,
   html.js-motion .cta,
   html.js-motion .cta h2,
-  html.js-motion .cta::after {
+  html.js-motion .cta::after,
+  html.js-motion .steps .step-icon,
+  html.js-motion .step-arrow path {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
@@ -984,6 +1030,10 @@ html.menu-open .menu-btn .icon-close { display: block; }
   to { opacity: 1; transform: none; }
 }
 @keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes step-pop {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
 @keyframes scribble { to { stroke-dashoffset: 0; } }
 @keyframes pop {
   from { opacity: 0; transform: scale(0.6); }

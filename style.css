@@ -601,13 +601,13 @@ html.menu-open .menu-btn .icon-close { display: block; }
   .step-arrow {
     display: block;
     position: absolute;
-    width: 64px;
-    height: 28px;
-    top: 26px;
-    left: -76px;
+    width: 66px;
+    height: 36px;
+    top: 22px;
+    left: -72px;
     fill: none;
     stroke: #2563eb;
-    stroke-width: 2.2;
+    stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
   }
